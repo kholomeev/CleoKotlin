@@ -1,7 +1,12 @@
 fun main(args: Array<String>) {
-    println("Hello World!")
+    // Создать приложение, которое подсчитывает количество подряд идущих одинаковых символов во введенной строке.
+    // На вход подается, например, строка AAADSSSRRTTHAAAA. На выходе получаем A3DS3R2T2HA4.
+    // То есть, если количество подряд идущих символов меньше двух, то мы не пишем единицу.
+    println("Данная программа при вводе строки определяет подряд идущие одинаковые символы и записывает число такого символа")
+    println("Введите строку из символов: "); val str = readln()
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    // for (i in 0 <= .. <= str.length - 1) {
+    //     print(str[i]);
+    // }
+
 }
