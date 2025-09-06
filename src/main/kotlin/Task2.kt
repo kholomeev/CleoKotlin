@@ -8,5 +8,10 @@ fun main() {
     print("Введите строку из символов: ")
     var input = readln()
 
+    val freq = mutableMapOf<Char, Int>() // карта "символ — количество"
+    for (ch in input) {
+        freq[ch] = freq.getOrDefault(ch, 0) + 1
+    }
+    val sorted = freq.toSortedMap() // сортировка ключей по алфавиту
 
 }
