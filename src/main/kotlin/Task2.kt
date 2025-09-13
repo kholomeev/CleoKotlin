@@ -24,6 +24,6 @@ fun main() {
     val input = readln()
     val output = countChars(input)
 
-    println("$output")
+    print(output)
 
 }
