@@ -1,32 +1,33 @@
-fun oddNumber(digit1: Char, digit2: Char) {
-    val result = StringBuilder()
+fun canFormOdd(a: Int, b: Int): Int? {
+    // Если одна из цифр нечетная → можно поставить её на конец числа
+    return when {
+        a % 2 == 1 -> a * 10 + b  // a на десятки, b на единицы (если b нечётный → число нечётное)
+        b % 2 == 1 -> b * 10 + a  // b на десятки, a на единицы
+        else -> null
+    }
+}
 
-    result.append(digit1)
-    result.append(digit2)
+fun main() {
+    print("Введите первую цифру: ")
+    val first = readln().toIntOrNull()
 
-    if (result.toString().toInt() % 2 == 1)
-        print(result)
-    else {
-        result.append(digit2)
-        result.append(digit1)
+    print("Введите вторую цифру: ")
+    val second = readln().toIntOrNull()
 
-        if (result.toString().toInt() % 2 == 1)
-            print(result)
-        else
-            print("Создать нечётное число невозможно")
+    if (first == null || second == null) {
+        println("Введено некорректное число")
+        return
     }
 
-}
-fun main() {
-    // Создать приложение, в котором пользователь вводит две различных цифры.
-    // На выходе приложение выдает, если это возможно, из введенных цифр, нечетное число. Результат выводится в консоль.
-    // При невозможности создать нечетное число выводится сообщение – «Создать нечетное число невозможно».
-    // Каждое число вводится на отдельной строке
-    println("Программа по составлению нечётных чисел из двух цифр(!)")
-    print("Введите первую цифру(!): ")
-    //val A = readln().toCharArray()
-    print("Введите вторую цифру(!): ")
-    //val B = readln()
+    if (first == second) {
+        println("Цифры должны быть различными")
+        return
+    }
 
-    //oddNumber(A, B)
+    val result = canFormOdd(first, second)
+    if (result != null) {
+        println("Составленное нечетное число: $result")
+    } else {
+        println("Создать нечетное число невозможно")
+    }
 }
